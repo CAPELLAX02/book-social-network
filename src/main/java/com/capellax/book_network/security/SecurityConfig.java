@@ -19,14 +19,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
 
+    private final JwtFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
-    // TODO: Create our very own JwtAuthFilter class later on to be injected as below
-    // private final JwtAuthFilter jwtAuthFilter
 
     @Bean
     public SecurityFilterChain securityFilterChain(
-            HttpSecurity httpSecurity
-    ) throws Exception {
+            HttpSecurity httpSecurity,
+            JwtFilter jwtFilter) throws Exception {
         httpSecurity
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
@@ -49,6 +48,6 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
+        return httpSecurity.build();
     }
-
 }
