@@ -49,7 +49,7 @@ public class JwtService {
                 .getBody();
     }
 
-    private String generateToken(
+    public String generateToken(
             HashMap<String, Object> claims,
             UserDetails userDetails
     ) {
