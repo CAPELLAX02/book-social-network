@@ -1,6 +1,6 @@
 services:
   postgres:
-    container_name: postgres-sql-bsn
+    container_name: postgres_sql_bsn
     image: postgres
     environment:
       POSTGRES_USER: username
