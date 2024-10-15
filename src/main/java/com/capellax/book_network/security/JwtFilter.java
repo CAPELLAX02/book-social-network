@@ -31,6 +31,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
         if (request.getServletPath().contains("/api/v1/auth")) {
             filterChain.doFilter(request, response);
+            return;
         }
 
         final String authHeader = request.getHeader("Authorization");
@@ -39,6 +40,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
+            return;
         }
 
         jwt = authHeader.substring(7);

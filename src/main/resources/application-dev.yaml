@@ -6,7 +6,8 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      # change it to 'update' later on
+      ddl-auto: create-drop
     show-sql: false
     properties:
       hibernate:
@@ -15,7 +16,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
     host: localhost
-    port: 1080
+    port: 1025
     username: ahmet
     password: ahmet
     properties:
