@@ -79,15 +79,11 @@ To set up the project, follow these steps:
     mvn clean install
     ```
 
-5. **Run the application but first replace the `x.x.x` with the current version from the `pom.xml` file**
+5. **Run the Spring Boot application:**
 
-    ```bash
-    java -jat target/book-social-network-x.x.x.jar
-    ```
-
-6. **Access the API documentation using Swagger UI**
-
--   Open a web browser and navigate to `http://localhost:8088/swagger-ui/index.html`.
+   ```bash
+   mvn spring-boot:run
+   ```
 
 ## Contributing
 
